@@ -1,8 +1,263 @@
 :root{
-    --red: rgb(255, 36, 36);
+    --primary: rgb(20, 20, 255);
+    --success: rgb(0, 210, 0);
+    --danger: rgb(255, 36, 36);
 }
 body{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
+/* basic styling */
+.ml-1{
+    margin-left: 1rem !important;
+}
+.ml-2{
+    margin-left: 2rem !important;
+}
+.ml-3{
+    margin-left: 3rem !important;
+}
+.ml-4{
+    margin-left: 4rem !important;
+}
+.ml-5{
+    margin-left: 5rem !important;
+}
+.mr-1{
+    margin-right: 1rem !important;
+}
+.mr-2{
+    margin-right: 2rem !important;
+}
+.mr-3{
+    margin-right: 3rem !important;
+}
+.mr-4{
+    margin-right: 4rem !important;
+}
+.mr-5{
+    margin-right: 5rem !important;
+}
+.mx-1{
+    margin-left: 1rem !important;
+    margin-right: 1rem !important;
+}
+.mx-2{
+    margin-left: 2rem !important;
+    margin-right: 2rem !important;
+}
+.mx-3{
+    margin-left: 3rem !important;
+    margin-right: 3rem !important;
+}
+.mx-4{
+    margin-left: 4rem !important;
+    margin-right: 4rem !important;
+}
+.mx-5{
+    margin-left: 5rem !important;
+    margin-right: 5rem !important;
+}
+.my-1{
+    margin-top: 1rem !important;
+    margin-bottom: 1rem !important;
+}
+.my-2{
+    margin-top: 2rem !important;
+    margin-bottom: 2rem !important;
+}
+.my-3{
+    margin-top: 3rem !important;
+    margin-bottom: 3rem !important;
+}
+.my-4{
+    margin-top: 4rem !important;
+    margin-bottom: 4rem !important;
+}
+.my-5{
+    margin-top: 5rem !important;
+    margin-bottom: 5rem !important;
+}
+
+.container{
+    padding: 20px;
+}
+.d-inline{
+    display: inline !important;
+}
+.d-block{
+    display: block !important;
+}
+.d-flex{
+    display: flex !important;
+}
+.align-center{
+    align-items: center;
+}
+.justify-center{
+    justify-content: center;
+}
+.flex-column{
+    flex-direction: column;
+}
+.text-muted{
+    opacity: 0.6;
+}
+/* basic styling ends */
+
+/* button starts */
+button{
+    font-size: 15px;
+    padding: 8px;
+    margin: 0px;
+    background: none;
+    border: 2.5px solid blue;
+    border-radius: 6px;
+    color: blue;
+    transition: 0.2s;
+    cursor: pointer;
+}
+button:hover{
+    background: blue;
+    color: white;
+}
+.btn-success{
+    color: var(--success);
+    border: 2.5px solid var(--success);
+}
+.btn-success:hover{
+    background: var(--success);
+    color: white;
+}
+.btn-danger{
+    color: var(--danger);
+    border: 2.5px solid var(--danger);
+}
+.btn-danger:hover{
+    background: var(--danger);
+    color: white;
+}
+/* button ends */
+
+/* nav starts here */
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0px;
+    font-family: 'segoe ui';
+  }
+  
+  .nav {
+    height: 50px;
+    width: 100%;
+    background-color: #4d4d4d;
+    position: relative;
+  }
+  
+  .nav > .nav-header {
+    display: inline;
+  }
+  
+  .nav > .nav-header > .nav-title {
+    display: inline-block;
+    font-size: 22px;
+    color: #fff;
+    padding: 10px 10px 10px 10px;
+  }
+  
+  .nav > .nav-btn {
+    display: none;
+  }
+  
+  .nav > .nav-links {
+    display: inline;
+    float: right;
+    font-size: 18px;
+  }
+  
+  .nav > .nav-links > a {
+    display: inline-block;
+    padding: 13px 10px 13px 10px;
+    text-decoration: none;
+    color: #efefef;
+  }
+  
+  .nav > .nav-links > a:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  
+  .nav > #nav-check {
+    display: none;
+  }
+  
+  @media (max-width:600px) {
+    .nav > .nav-btn {
+      display: inline-block;
+      position: absolute;
+      right: 0px;
+      top: 0px;
+    }
+    .nav > .nav-btn > label {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      padding: 13px;
+    }
+    .nav > .nav-btn > label:hover,.nav  #nav-check:checked ~ .nav-btn > label {
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+    .nav > .nav-btn > label > span {
+      display: block;
+      width: 25px;
+      height: 10px;
+      border-top: 2px solid #eee;
+    }
+    .nav > .nav-links {
+      position: absolute;
+      display: block;
+      width: 100%;
+      background-color: #333;
+      height: 0px;
+      transition: all 0.3s ease-in;
+      overflow-y: hidden;
+      top: 50px;
+      left: 0px;
+    }
+    .nav > .nav-links > a {
+      display: block;
+      width: 100%;
+    }
+    .nav > #nav-check:not(:checked) ~ .nav-links {
+      height: 0px;
+    }
+    .nav > #nav-check:checked ~ .nav-links {
+      height: calc(100vh - 50px);
+      overflow-y: auto;
+    }
+  }
+/* nav ends here */
+
+/* form starts */
+input{
+    width: 82vw;
+    height: 35px;
+    margin: 12px 0px;
+    display: block;
+    border: 0.1px solid #333;
+    border-radius: 6px;
+    padding-left: 10px;
+}
+input:active{
+    border: 0.1px solid #333;
+    border-radius: 10px;
+}
+form{
+    width: 100vw;
+    padding: 0 6vw !important;
+    padding-right: 6vw !important;
+}
+/* form ends */

@@ -3,25 +3,6 @@ const cl = (el) => {
 }
 
 const check = (htmlContent, el) => {
-    if(Array.isArray(htmlContent)){
-        el = el.appendChild(el)
-        return el
-    } else {
-        el.innerHTML = htmlContent
-        return el
-    }
-}
-
-const addClasses = (el, clist) => {
-    if(clist == undefined){
-        clist = 'none'
-    }
-    el.classList.add(clist)
-}
-
-const div = (htmlContent, classes) => {
-    const el = cl('div')
-    addClasses(el, classes)
     for(e of htmlContent){
         if(Array.isArray(htmlContent)){
             el.appendChild(e)
@@ -29,7 +10,26 @@ const div = (htmlContent, classes) => {
             el.innerHTML = htmlContent
         }
     }
-        return el
+    return el
+}
+
+const addClasses = (el, clist) => {
+    if(clist == undefined || clist === ''){
+        clist = 'none'
+    }
+    if(Array.isArray(clist)){
+        for(c of clist){
+            el.classList.add(c)
+        }
+    } else {
+        el.classList.add(clist)
+    }
+}
+
+const div = (htmlContent, classes) => {
+    const el = cl('div')
+    addClasses(el, classes)
+    return check(htmlContent, el)
 }
 
 const span = (htmlContent, classes) => {
@@ -74,14 +74,40 @@ const h5 = (htmlContent, classes) => {
     return check(htmlContent, el)
 }
 
+const form = (htmlContent, action, method, classes) => {
+    const el = cl('form')
+    el.action = action
+    el.method = method
+    addClasses(el, classes)
+    return check(htmlContent, el)
+}
+
 const button = (htmlContent, classes) => {
     const el = cl('button')
     addClasses(el, classes)
     return check(htmlContent, el)
 }
 
-const input = (htmlContent, classes) => {
+const input = (text, type, classes) => {
     const el = cl('input')
+    addClasses(el, classes)
+    el.placeholder = text
+    el.type = type
+    return el
+}
+
+const img = (classes, link, {width, height}) => {
+    const el = cl('img')
+    el.src = link
+    el.width = width
+    el.height = height
+    addClasses(el, classes)
+    return check(null, el)
+}
+
+const a = (htmlContent, classes, link) => {
+    const el = cl('a')
+    el.src = link
     addClasses(el, classes)
     return check(htmlContent, el)
 }
@@ -89,6 +115,43 @@ const input = (htmlContent, classes) => {
 const icon = (classes) => {
     const el = cl('span')
     addClasses(el, classes)
-    // el.classList.push(classes)
     return el
 }
+
+
+
+// custom tags
+const nav = (logo, links, classes) => {
+    
+    const el = cl('nav')
+
+    el.innerHTML = `
+            <div class="nav">
+        <input type="checkbox" id="nav-check">
+        <div class="nav-header">
+            <div class="nav-title">
+            ${logo}
+            </div>
+        </div>
+        <div class="nav-btn">
+            <label for="nav-check">
+            <span></span>
+            <span></span>
+            <span></span>
+            </label>
+        </div>
+        
+        <div class="nav-links">
+            ${links.map(link => {
+                return "<a href='"+ link.link +"' target='_blank'>'"+ link.name +"'</a>"
+            }).join('')}
+        </div>
+        </div>
+    `
+    addClasses(el, classes)
+    return el
+}
+
+
+
+
