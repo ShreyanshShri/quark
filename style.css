@@ -151,11 +151,15 @@ button:hover{
     font-family: 'segoe ui';
   }
   
+  /* nav starts here */
   .nav {
     height: 50px;
     width: 100%;
-    background-color: #4d4d4d;
-    position: relative;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99999999;
   }
   
   .nav > .nav-header {
@@ -177,21 +181,32 @@ button:hover{
     display: inline;
     float: right;
     font-size: 18px;
+    z-index: 999999;
   }
   
   .nav > .nav-links > a {
     display: inline-block;
     padding: 13px 10px 13px 10px;
     text-decoration: none;
-    color: #efefef;
+    color: rgb(251, 251, 251);
   }
   
   .nav > .nav-links > a:hover {
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.02);
   }
   
   .nav > #nav-check {
     display: none;
+  }
+
+  .nav-primary {
+    background-color: var(--primary);
+  }
+  .nav-success {
+    background-color: var(--success);
+  }
+  .nav-danger {
+    background-color: var(--danger);
   }
   
   @media (max-width:600px) {
@@ -226,6 +241,7 @@ button:hover{
       overflow-y: hidden;
       top: 50px;
       left: 0px;
+      position: fixed;
     }
     .nav > .nav-links > a {
       display: block;
@@ -261,3 +277,114 @@ form{
     padding-right: 6vw !important;
 }
 /* form ends */
+
+/* card starts here */
+.card{
+    width: 250px;
+    border: 1px solid rgba(10,10,10,0.5);
+    border-radius: 10px;
+    padding: 0 25px 10px 25px;
+    margin: 10px;
+    margin-right: 10px !important;
+    display: inline-block;
+}
+.card > p {
+    margin: 10px 0;
+}
+.card > h1,h2,h3,h4 {
+    margin: 15px 0 0 0;
+}
+/* card ends here */
+
+/* list starts here */
+ul{
+    padding: 0;
+    width: 280px;
+}
+ul li{
+    background: rgb(248, 248, 248);
+    list-style: none;
+    border: 1px solid rgba(40,40,40,0.5);
+    border-radius: 4px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+}
+li > span {
+    height: 90%;
+    width: 1px;
+    margin-left: 15px;
+    margin-right: 15px;
+    border: none;
+    border-left: 1px solid rgba(40,40,40,0.5);
+}
+.li-active{
+    background: var(--primary);
+    color: white;
+}
+/* list ends here */
+
+/* loader starts */
+.loader {
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid #3498db;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+    position: fixed;
+    margin-left: 45%;
+    margin-top: 35vh;
+    transform: translate(-50%,-50%);
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+/* loader ends */
+    /* The alert message box */
+.alert {
+    padding: 20px;
+    background-color: white;
+    border: 2px solid;
+    border-radius: 30px;
+    color: var(--primary);
+    margin-bottom: 15px;
+    position: fixed;
+    z-index: 99;
+    width: 77vw;
+    margin: 30vh 11vw;
+    height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 40px;
+    transition: 0.5s
+}
+.alert-success {
+    color: var(--success);
+}
+.alert-danger {
+    color: var(--danger);
+}
+@media (max-width: 768px) {
+    .alert{
+        font-size: 25px;
+    }
+}
+/* The close button */
+.closebtn {
+    margin-left: 15px;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.closebtn:hover {
+    color: black;
+}

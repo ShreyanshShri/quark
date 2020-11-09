@@ -1,0 +1,70 @@
+<!-- https://stores.kotisdesign.com/hacktoberfest/dhuqnd6fkdn8suj8bkoinw -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<style>
+
+</style>
+<body>
+    
+      <!-- <div class="loader"></div> -->
+    <script src='./script.js'></script>
+    <script>
+        
+        const root = div(
+            [   nav(
+                {
+                    logo: 'hambuger',
+                    name: 'ShreyaCord',
+                    links: [{
+                            link: 'xyz',
+                            name: 'xyz'
+                        },{
+                            link: 'abc',
+                            name: 'abc'
+                        }]
+                }
+                , 'nav-danger'),
+                // loader(),
+                showAlert({
+                    text:'Hii xD this is shreya xD',
+                }, 'alert-success'),
+                loader(),
+                div([
+                    form([
+                        input('xD', 'text', ''),
+                        span('hii', 'text-muted'),
+                        input('xD', 'text', ''),
+                        input('xD', 'password', ''),
+                        button('Submit', ['btn-danger', 'ml-2'])
+                        ], '/xD', 'POST')
+                ], ''),
+                div([
+                    card({
+                        title: 'Hello Word',
+                        subtitle: 'Tujhse mtlb',
+                        text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. In incidunt assumenda molestias voluptate perferendis perspiciatis animi sint modi quod iure sapiente reprehenderit velit quae, temporibus, rem cum esse aliquid. Labore.',
+                        buttonText: 'Click me'
+                    }, 'card')
+                ], 'card-section'),
+                ul([
+                    'Item1 --active',
+                    'Item2',
+                    'Item3 --active',
+                    'Item4',
+                    'Item5'
+                ], 'w100'),
+                h1('xD')
+            ])
+
+        document.body.append(root)
+
+    </script>
+</body>
+</html>

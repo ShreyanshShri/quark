@@ -118,19 +118,53 @@ const icon = (classes) => {
     return el
 }
 
+const ul = (items, classes) => {
+    const el = cl('ul')
+    el.innerHTML = `
+        ${items.map(item => {
+            if(item.includes('--active')){
+                item = item.replace('--active','')
+                return '<li class="li-active">'+ item +'</li>'
+                }
+            return '<li>'+ item +'</li>'  
+        }).join('')}
+    `   
+    addClasses(el, classes)
+    return el
+}
 
+const ol = (items, classes) => {
+    const el = cl('ul')
+    el.innerHTML = `
+        ${items.map((item, index) => {
+          if(item.includes('--active')){
+            i = parseInt(index) + 1
+            item = item.replace('--active','')
+            return '<li class="li-active">'+ i +' <span></span> '+ item +'</li>'
+          }
+          i = parseInt(index) + 1
+          return '<li>'+ i +' <span></span> '+ item +'</li>'  
+        })}
+    `   
+    addClasses(el, classes)
+    return el
+}
 
 // custom tags
-const nav = (logo, links, classes) => {
-    
+const nav = ({
+    logo,
+    name,
+    links,
+}, classes) => {
+    /* fix icon */
     const el = cl('nav')
-
+    el.classList.add('nav')
     el.innerHTML = `
-            <div class="nav">
         <input type="checkbox" id="nav-check">
         <div class="nav-header">
             <div class="nav-title">
-            ${logo}
+            <i class='${logo}'></i>
+            ${name}
             </div>
         </div>
         <div class="nav-btn">
@@ -143,15 +177,54 @@ const nav = (logo, links, classes) => {
         
         <div class="nav-links">
             ${links.map(link => {
-                return "<a href='"+ link.link +"' target='_blank'>'"+ link.name +"'</a>"
+                return "<a href="+ link.link +" target='_blank'>"+ link.name +"</a>"
             }).join('')}
-        </div>
         </div>
     `
     addClasses(el, classes)
     return el
 }
 
+const card = ({
+    imgSrc,
+    title,
+    subtitle,
+    text,
+    buttonSrc,
+    buttonText
+}, classes) => {
+    const el = cl('div')
 
+    el.innerHTML = `
+            ${imgSrc != undefined ? '<img src ='+ imgSrc +' class= "card=img" />' : ''}
+            ${title != undefined ? '<h2>'+ title +'</h2>' : '' }
+            ${subtitle != undefined ? '<span class="text-muted">'+ subtitle +'</span>' : '' }
+            ${text != undefined ? '<p>'+ text +'</p>' : '' }
+            ${buttonText != undefined ? '<a href='+ buttonSrc +'><button>'+ buttonText +'</button></a>' : '' }
+    `
+    addClasses(el, classes)
+    return el
+}
 
+const loader = (classes) => {
+    const el = cl('div')
+    el.classList.add('loader')
+    addClasses(el, classes)
+    return el
+}
 
+const showAlert = ({
+    text,
+    logo
+}, classes) => {
+    const el = cl('div')
+    el.classList.add('alert')
+    el.innerHTML = `
+    <span class="closebtn" onclick="this.parentElement.style.display='none';" style="position:absolute; top:10px; right:20px;">X</span>
+            ${logo != undefined ? '<span class='+ logo +'></span>' : '' }
+            ${text != undefined ? '<p>' + text + '</p>' : '' }
+    `
+
+    addClasses(el, classes)
+    return el
+}
