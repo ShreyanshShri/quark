@@ -13,112 +13,132 @@ const check = (htmlContent, el) => {
     return el
 }
 
-const addClasses = (el, clist) => {
-    if(clist == undefined || clist === ''){
-        clist = 'none'
+const setParams = (el, params) => {
+
+var {classes, id, src, href, onclick, onmouseover, action, method} = params || {}
+
+    if (src != undefined) {
+        el.src = src
     }
-    if(Array.isArray(clist)){
-        for(c of clist){
+    if (href != undefined) {
+        el.href = href
+    }
+    if(onclick != undefined) {
+        el.onclick = onclick
+    }
+    if (onmouseover != undefined) {
+        el.onmouseover = onmouseover
+    }
+    if(id != undefined) {
+        el.id = id
+    }
+    if (action != undefined) {
+        el.action = action
+    }
+    if (method != undefined) {
+        el.method = method
+    }
+
+    if (classes == undefined || classes === '') {
+        classes = 'none'
+    }
+    if (Array.isArray(classes)) {
+        for (c of classes) {
             el.classList.add(c)
         }
     } else {
-        el.classList.add(clist)
+        el.classList.add(classes)
     }
 }
 
-const div = (htmlContent, classes) => {
+const div = (htmlContent, params) => {
     const el = cl('div')
-    addClasses(el, classes)
+    // setParams(el, params)
+    setParams(el, params)
     return check(htmlContent, el)
 }
 
-const span = (htmlContent, classes) => {
+const span = (htmlContent, params) => {
     const el = cl('span')
-    addClasses(el, classes)
+    setParams(el, params)
     return check(htmlContent, el)
 }
 
-const p = (htmlContent, classes) => {
+const p = (htmlContent, params) => {
     const el = cl('p')
-    addClasses(el, classes)
+    setParams(el, params)
     return check(htmlContent, el)
 }
 
-const h1 = (htmlContent, classes) => {
+const h1 = (htmlContent, params) => {
     const el = cl('h1')
-    addClasses(el, classes)
+    setParams(el, params)
     return check(htmlContent, el)
 }
 
-const h2 = (htmlContent, classes) => {
+const h2 = (htmlContent, params) => {
     const el = cl('h2')
-    addClasses(el, classes)
+    setParams(el, params)
     return check(htmlContent, el)
 }
 
-const h3 = (htmlContent, classes) => {
+const h3 = (htmlContent, params) => {
     const el = cl('h3')
-    addClasses(el, classes)
+    setParams(el, params)
     return check(htmlContent, el)
 }
 
-const h4 = (htmlContent, classes) => {
+const h4 = (htmlContent, params) => {
     const el = cl('h4')
-    addClasses(el, classes)
+    setParams(el, params)
     return check(htmlContent, el)
 }
 
-const h5 = (htmlContent, classes) => {
+const h5 = (htmlContent, params) => {
     const el = cl('h5')
-    addClasses(el, classes)
+    setParams(el, params)
     return check(htmlContent, el)
 }
 
-const form = (htmlContent, action, method, classes) => {
+const form = (htmlContent, params) => {
     const el = cl('form')
-    el.action = action
-    el.method = method
-    addClasses(el, classes)
+    setParams(el, params)
     return check(htmlContent, el)
 }
 
-const button = (htmlContent, classes) => {
+const button = (htmlContent, params) => {
     const el = cl('button')
-    addClasses(el, classes)
+    setParams(el, params)
     return check(htmlContent, el)
 }
 
-const input = (text, type, classes) => {
+const input = (text, type, params) => {
     const el = cl('input')
-    addClasses(el, classes)
+    setParams(el, params)
     el.placeholder = text
     el.type = type
     return el
 }
 
-const img = (classes, link, {width, height}) => {
+const img = (params) => {
     const el = cl('img')
-    el.src = link
-    el.width = width
-    el.height = height
-    addClasses(el, classes)
-    return check(null, el)
-}
-
-const a = (htmlContent, classes, link) => {
-    const el = cl('a')
-    el.src = link
-    addClasses(el, classes)
-    return check(htmlContent, el)
-}
-
-const icon = (classes) => {
-    const el = cl('span')
-    addClasses(el, classes)
+    setParams(el, params)
     return el
 }
 
-const ul = (items, classes) => {
+const a = (htmlContent, params, link) => {
+    // const el = cl('a')
+    setParams(el, params)
+    return check(htmlContent, el)
+}
+
+const icon = (params) => {
+    const el = cl('span')
+    setParams(el, params)
+    return el
+}
+
+const ul = (items, params) => {
     const el = cl('ul')
     el.innerHTML = `
         ${items.map(item => {
@@ -129,11 +149,11 @@ const ul = (items, classes) => {
             return '<li>'+ item +'</li>'  
         }).join('')}
     `   
-    addClasses(el, classes)
+    setParams(el, params)
     return el
 }
 
-const ol = (items, classes) => {
+const ol = (items, params) => {
     const el = cl('ul')
     el.innerHTML = `
         ${items.map((item, index) => {
@@ -146,7 +166,7 @@ const ol = (items, classes) => {
           return '<li>'+ i +' <span></span> '+ item +'</li>'  
         })}
     `   
-    addClasses(el, classes)
+    setParams(el, params)
     return el
 }
 
@@ -155,7 +175,7 @@ const nav = ({
     logo,
     name,
     links,
-}, classes) => {
+}, params) => {
     /* fix icon */
     const el = cl('nav')
     el.classList.add('nav')
@@ -181,7 +201,7 @@ const nav = ({
             }).join('')}
         </div>
     `
-    addClasses(el, classes)
+    setParams(el, params)
     return el
 }
 
@@ -192,7 +212,7 @@ const card = ({
     text,
     buttonSrc,
     buttonText
-}, classes) => {
+}, params) => {
     const el = cl('div')
 
     el.innerHTML = `
@@ -202,21 +222,21 @@ const card = ({
             ${text != undefined ? '<p>'+ text +'</p>' : '' }
             ${buttonText != undefined ? '<a href='+ buttonSrc +'><button>'+ buttonText +'</button></a>' : '' }
     `
-    addClasses(el, classes)
+    setParams(el, params)
     return el
 }
 
-const loader = (classes) => {
+const loader = (params) => {
     const el = cl('div')
     el.classList.add('loader')
-    addClasses(el, classes)
+    setParams(el, params)
     return el
 }
 
 const showAlert = ({
     text,
     logo
-}, classes) => {
+}, params) => {
     const el = cl('div')
     el.classList.add('alert')
     el.innerHTML = `
@@ -225,6 +245,6 @@ const showAlert = ({
             ${text != undefined ? '<p>' + text + '</p>' : '' }
     `
 
-    addClasses(el, classes)
+    setParams(el, params)
     return el
 }

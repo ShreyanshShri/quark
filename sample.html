@@ -9,16 +9,15 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <style>
-
+#hero_bg{
+    width: 100vw;
+    height: 90vh;
+    opacity: 0.02;
+}
 </style>
 <body>
-    
-      <!-- <div class="loader"></div> -->
-    <script src='./script.js'></script>
-    <script>
-        
-        const root = div(
-            [   nav(
+    <!-- 
+        nav(
                 {
                     logo: 'hambuger',
                     name: 'ShreyaCord',
@@ -61,7 +60,36 @@
                     'Item5'
                 ], 'w100'),
                 h1('xD')
-            ])
+     -->
+      <!-- <div class="loader"></div> -->
+    <script src='./script.js'></script>
+    <script>
+        
+        const root = div([   
+            nav({
+                name: 'ShreyaLib',
+                links: [
+                    {
+                        link: '/about',
+                        name: 'About Us'
+                    },
+                    {
+                        link: '/login',
+                        name: 'LogIn'
+                    },
+                    {
+                        link: '/sighUp',
+                        name: 'SignUp',
+                    },
+                ]
+            }, {
+                id: 'nav'
+            }),
+            img({
+                src: './laptop.jpg',
+                id: 'hero_bg'
+            })
+        ])
 
         document.body.append(root)
 
