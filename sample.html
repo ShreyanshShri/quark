@@ -6,65 +6,247 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="./style.css">
 </head>
 <style>
-#hero_bg{
+    body{
+        overflow-x: hidden;
+    }
+#hero-section{
     width: 100vw;
-    height: 90vh;
-    opacity: 0.02;
+    height: 98vh;
+    color: white;
+    position: relative;
 }
+#hero-section:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -10000000;
+    background: linear-gradient(
+          rgba(0, 0, 0, 0.7), 
+          rgba(0, 0, 0, 0.7)
+        ),url(./laptop.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#hero-text{
+    position: absolute;
+    margin-top: 30vh;
+    margin-left: 7vw;
+    font-size: 32px;
+}
+h1{
+    margin: 10px 0;
+    padding: 2px 0;
+}
+p{
+    font-size: 20px;
+}
+.text-white{
+    color: white;
+    border-color: white;
+}
+#card-section{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-top: 120px;
+}
+#about{
+    background-color: #eee;
+    height: 60vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 20px;
+}
+#text {
+    width: 75vw;
+    padding: 20px;
+}
+#profile-img{
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+#profile-img-section{
+    width: 30vw;
+    height: 35vh;
+    margin-left: 5vw;
+    position: relative;
+}
+#profile-img-section::before{
+    content: '';
+    position: absolute;
+    width: 54%;
+    height: 160%;
+    top: -10vh;
+    z-index: 0;
+    left: -15px;
+    opacity: 0.8;
+    background-color: #FFC125; 
+}
+div {
+    position: relative;
+}
+.watermark-heading{
+    font-size: 80px;
+    position: absolute;
+    top: 0px;
+    left: 20px;
+    opacity: 0.2;
+    z-index: 99999;
+    letter-spacing: 12px;
+}
+form{
+    padding-top: 90px;
+}
+.center{
+    font-size: 17px;
+    text-align: center;
+}
+#third-H1{
+    margin-top: 40px;
+    line-height: 1;
+}
+.fa{
+    font-size: 20px;
+    margin-left: 35px;
+    cursor: pointer;
+}
+.social-media-links{
+    color: white;
+    text-decoration: none;
+}
+.fa-arrow-circle-o-right{
+    font-size: 100px;
+    color: lightskyblue;
+}
+@media (max-width: 765px) {
+    #about{
+        flex-direction: column;
+        height: 150vh;
+    }
+    #profile-img-section{
+        width: 80vw;
+        height: 60vh;
+        margin-top: -15vh;
+    }
+    #profile-img-section::before{
+        height: 120%;
+    }
+    form{
+        padding: 0;
+    }
+    .watermark-heading{
+        font-size: 50px;
+    }
+    .watermark-heading :nth-child(1){
+        margin-top: 38vh;
+    }
+    #first-H1{
+        margin-top:48vh;
+    }
+    form{
+        margin-top: 15vh;
+    }
+}
+@media (max-width: 613){
+    .watermark-heading{
+        font-size: 40px;
+    }
+}
+@media (max-width: 365px) {
+    #hero-text{
+        font-size: 24px;
+    }
+    #about{
+        flex-direction: column;
+        height: 140vh;
+    }
+    #profile-img-section{
+        width: 80vw;
+        height: 40vh;
+        margin-top: 8vh;
+    }
+    #profile-img-section::before{
+        height: 130%;
+    }
+    .watermark-heading{
+        font-size: 40px;
+    }
+    .fa{
+        margin-left: 16px;
+    }
+}
+
 </style>
 <body>
-    <!-- 
-        nav(
-                {
-                    logo: 'hambuger',
-                    name: 'ShreyaCord',
-                    links: [{
-                            link: 'xyz',
-                            name: 'xyz'
-                        },{
-                            link: 'abc',
-                            name: 'abc'
-                        }]
-                }
-                , 'nav-danger'),
-                // loader(),
-                showAlert({
-                    text:'Hii xD this is shreya xD',
-                }, 'alert-success'),
-                loader(),
-                div([
-                    form([
-                        input('xD', 'text', ''),
-                        span('hii', 'text-muted'),
-                        input('xD', 'text', ''),
-                        input('xD', 'password', ''),
-                        button('Submit', ['btn-danger', 'ml-2'])
-                        ], '/xD', 'POST')
-                ], ''),
-                div([
-                    card({
-                        title: 'Hello Word',
-                        subtitle: 'Tujhse mtlb',
-                        text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. In incidunt assumenda molestias voluptate perferendis perspiciatis animi sint modi quod iure sapiente reprehenderit velit quae, temporibus, rem cum esse aliquid. Labore.',
-                        buttonText: 'Click me'
-                    }, 'card')
-                ], 'card-section'),
-                ul([
-                    'Item1 --active',
-                    'Item2',
-                    'Item3 --active',
-                    'Item4',
-                    'Item5'
-                ], 'w100'),
-                h1('xD')
-     -->
-      <!-- <div class="loader"></div> -->
+
     <script src='./script.js'></script>
     <script>
         
+        const cardInfo = [
+                {
+                    imgSrc: './laptop.jpg',
+                    title: 'A day in life of bihari :)',
+                    subtitle: '7/11/2020',
+                    text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui quos cum quia unde velit minima excepturi ex quibusdam eveniet magnam.',
+                    buttonText: 'Read More'
+                },
+                {
+                    imgSrc: './laptop.jpg',
+                    title: 'A day in life of bihari :)',
+                    subtitle: '7/11/2020',
+                    text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui quos cum quia unde velit minima excepturi ex quibusdam eveniet magnam.',
+                    buttonText: 'Read More'
+                },
+                {
+                    imgSrc: './laptop.jpg',
+                    title: 'A day in life of bihari :)',
+                    subtitle: '7/11/2020',
+                    text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui quos cum quia unde velit minima excepturi ex quibusdam eveniet magnam.',
+                    buttonText: 'Read More'
+                },
+                {
+                    imgSrc: './laptop.jpg',
+                    title: 'A day in life of bihari :)',
+                    subtitle: '7/11/2020',
+                    text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui quos cum quia unde velit minima excepturi ex quibusdam eveniet magnam.',
+                    buttonText: 'Read More'
+                },
+                {
+                    imgSrc: './laptop.jpg',
+                    title: 'A day in life of bihari :)',
+                    subtitle: '7/11/2020',
+                    text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui quos cum quia unde velit minima excepturi ex quibusdam eveniet magnam.',
+                    buttonText: 'Read More'
+                }
+        ]
+
+                const allCards = cardInfo.map(eachCard => {
+                    const {imgSrc,
+                        title,
+                        subtitle,
+                        text,
+                        buttonText} = eachCard || {};
+                    return card({
+                        imgSrc,
+                        title,
+                        subtitle,
+                        text,
+                        buttonText
+                    }, {
+                        classes: 'card'
+                    })
+                })
+
         const root = div([   
             nav({
                 name: 'ShreyaLib',
@@ -85,13 +267,131 @@
             }, {
                 id: 'nav'
             }),
-            img({
-                src: './laptop.jpg',
-                id: 'hero_bg'
+            div([
+                div([
+                    h3('Welcome to'),
+                    h1('shreyaPens'),
+                    p('Thank you for visiting'),
+                    button('Read my pens', {
+                        classes: ['btn-dark', 'text-white']
+                    }),
+                    a([
+                        button('Follow Me', {
+                            classes: ['text-white', 'btn-dark', 'ml-1']
+                        })
+                    ], {
+                        href: 'https://www.sololearn.com/Profile/12767781'
+                    }),
+                ], {
+                    id: 'hero-text'
+                })
+            ],{
+                id: 'hero-section'
+            }),
+            div([
+                h1('about me', {
+                    classes: 'watermark-heading',
+                    id: 'first-H1'
+                }),
+                div([
+                    img({
+                        src: './laptop.jpg',
+                        id: 'profile-img'
+                    })
+                ],{
+                    id: 'profile-img-section'
+                }),
+                div([
+                    h2('Hello'),
+                    p('Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus aperiam, assumenda quis quod dignissimos quibusdam voluptas itaque nam obcaecati odit consequuntur, enim cumque repudiandae autem, nemo provident nesciunt. Eligendi nemo recusandae distinctio iure perspiciatis porro sequi. Maxime explicabo temporibus quos, beatae, amet veritatis vitae impedit tenetur nam, corporis iure! Veniam.')
+                ], {
+                    id: 'text'
+                })
+            ], {
+                id: 'about'
+            }),
+            div([
+                h1('latest pens', {
+                    classes: 'watermark-heading'
+                }),
+                ...allCards,
+                span('', {
+                    classes: ['fa', 'fa-arrow-circle-o-right', 'fa-3x']
+                })
+            ], {
+                id: 'card-section'
+            }),
+            div([
+                div([
+                    a([
+                        span('', {
+                            classes: ['fa', 'fa-facebook']
+                        })
+                    ], {
+                        href: '#',
+                        classes: 'social-media-links'
+                    }),
+                    a([
+                        span('', {
+                            classes: ['fa', 'fa-twitter']
+                        })
+                    ], {
+                        href: '#',
+                        classes: 'social-media-links'
+                    }),
+                    a([
+                        span('', {
+                            classes: ['fa', 'fa-instagram']
+                        })
+                    ], {
+                        href: '#',
+                        classes: 'social-media-links'
+                    }),
+                    a([
+                        span('', {
+                            classes: ['fa', 'fa-linkedin']
+                        })
+                    ], {
+                        href: '#',
+                        classes: 'social-media-links'
+                    }),
+                    a([
+                        span('', {
+                            classes: ['fa', 'fa-github']
+                        })
+                    ], {
+                        href: 'https://github.com/shreyanshshri',
+                        classes: 'social-media-links'
+                    })
+                ], {
+                    id: 'social-media'
+                }),
+                form([
+                    h1('contact me', {
+                        classes: 'watermark-heading',
+                        id: 'third-H1'
+                    }),
+                    input('Email', 'text'),
+                    input('Message', 'text', {
+                        classes: 'mb-2'
+                    }),
+                    button('Submit', {
+                        classes: ['btn-dark', 'text-white']
+                    })
+                ]),
+                p('Thanks for visiting...', {
+                    classes: 'center'
+                }),
+                p('&copy 2020 ShreyanshShri | All Rights Reserved', {
+                    classes: 'center'
+                })
+            ], {
+                id: 'contact-form',
+                classes: ['bg-dark', 'container']
             })
         ])
 
-        document.body.append(root)
+        document.body.append(root) 
 
     </script>
 </body>

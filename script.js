@@ -126,8 +126,8 @@ const img = (params) => {
     return el
 }
 
-const a = (htmlContent, params, link) => {
-    // const el = cl('a')
+const a = (htmlContent, params) => {
+    const el = cl('a')
     setParams(el, params)
     return check(htmlContent, el)
 }
@@ -216,12 +216,14 @@ const card = ({
     const el = cl('div')
 
     el.innerHTML = `
-            ${imgSrc != undefined ? '<img src ='+ imgSrc +' class= "card=img" />' : ''}
+            ${imgSrc != undefined ? '<img src ='+ imgSrc +' class= "card-img" />' : ''}
+            <div class='card-body'>
             ${title != undefined ? '<h2>'+ title +'</h2>' : '' }
             ${subtitle != undefined ? '<span class="text-muted">'+ subtitle +'</span>' : '' }
             ${text != undefined ? '<p>'+ text +'</p>' : '' }
             ${buttonText != undefined ? '<a href='+ buttonSrc +'><button>'+ buttonText +'</button></a>' : '' }
-    `
+            </div>
+            `
     setParams(el, params)
     return el
 }
