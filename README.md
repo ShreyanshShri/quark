@@ -1,7 +1,7 @@
 # quark
 A JavaScript framework which helps you create awesome dynamic single page websites quickly...
 
-<a href='https://shreyanshshri.github.io/quark/sample.html'>Live Example</a>
+<a href='https://shreyanshshri.github.io/quark/sample/sample.html'>Live Example</a>
 
 ## Getting started
 First you need to get the cdn of css and js file<br>
