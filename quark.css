@@ -40,6 +40,36 @@ body{
 .mr-5{
     margin-right: 5rem !important;
 }
+.mt-1{
+    margin-top: 1rem !important;
+}
+.mt-2{
+    margin-top: 2rem !important;
+}
+.mt-3{
+    margin-top: 3rem !important;
+}
+.mt-4{
+    margin-top: 4rem !important;
+}
+.mt-5{
+    margin-top: 5rem !important;
+}
+.mb-1{
+    margin-bottom: 1rem !important;
+}
+.mb-2{
+    margin-bottom: 2rem !important;
+}
+.mb-3{
+    margin-bottom: 3rem !important;
+}
+.mb-4{
+    margin-bottom: 4rem !important;
+}
+.mb-5{
+    margin-bottom: 5rem !important;
+}
 .mx-1{
     margin-left: 1rem !important;
     margin-right: 1rem !important;
@@ -108,7 +138,37 @@ body{
     padding-right: 4rem !important;
 }
 .pr-5{
-    padding-right: 5rem !important;
+    padding-top: 5rem !important;
+}
+.pt-1{
+    padding-top: 1rem !important;
+}
+.pt-2{
+    padding-top: 2rem !important;
+}
+.pt-3{
+    padding-top: 3rem !important;
+}
+.pt-4{
+    padding-top: 4rem !important;
+}
+.pt-5{
+    padding-top: 5rem !important;
+}
+.pb-1{
+    padding-bottom: 1rem !important;
+}
+.pb-2{
+    padding-bottom: 2rem !important;
+}
+.pb-3{
+    padding-bottom: 3rem !important;
+}
+.pb-4{
+    padding-bottom: 4rem !important;
+}
+.pb-5{
+    padding-bottom: 5rem !important;
 }
 .px-1{
     padding-left: 1rem !important;

@@ -1,5 +1,3 @@
-<!-- https://stores.kotisdesign.com/hacktoberfest/dhuqnd6fkdn8suj8bkoinw -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://shreyanshshri.github.io/quark/quark.css">
 </head>
 <style>
     body{
@@ -189,10 +187,89 @@ form{
 </style>
 <body>
 
-    <script src='./script.js'></script>
+    <script src='./quark.js'></script>
     <script>
-        
-        const cardInfo = [
+                
+function Nav(){
+    return(
+        nav({
+                name: 'ShreyaPens',
+                links: [
+                    {
+                        link: '/about',
+                        name: 'About Us'
+                    },
+                    {
+                        link: '/contact',
+                        name: 'Contact Us'
+                    },
+                    {
+                        link: '/login',
+                        name: 'LogIn',
+                    },
+                ]
+            }, {
+                id: 'nav'
+            })
+    )
+}
+
+function Hero(){
+    return(
+        div([
+                div([
+                    h3('Welcome to'),
+                    h1('shreyaPens'),
+                    p('Thank you for visiting'),
+                    button('Read my pens', {
+                        classes: ['btn-dark', 'text-white']
+                    }),
+                    a([
+                        button('Follow Me', {
+                            classes: ['text-white', 'btn-dark', 'ml-1']
+                        })
+                    ], {
+                        href: 'https://www.sololearn.com/Profile/12767781'
+                    }),
+                ], {
+                    id: 'hero-text'
+                })
+            ],{
+                id: 'hero-section'
+            })
+    )
+}
+
+
+function About(){
+    return(
+        div([
+                h1('about me', {
+                    classes: 'watermark-heading',
+                    id: 'first-H1'
+                }),
+                div([
+                    img({
+                        src: './laptop.jpg',
+                        id: 'profile-img'
+                    })
+                ],{
+                    id: 'profile-img-section'
+                }),
+                div([
+                    h2('Hello'),
+                    p('Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus aperiam, assumenda quis quod dignissimos quibusdam voluptas itaque nam obcaecati odit consequuntur, enim cumque repudiandae autem, nemo provident nesciunt. Eligendi nemo recusandae distinctio iure perspiciatis porro sequi. Maxime explicabo temporibus quos, beatae, amet veritatis vitae impedit tenetur nam, corporis iure! Veniam.')
+                ], {
+                    id: 'text'
+                })
+            ], {
+                id: 'about'
+            })
+    )
+}
+
+function Cards(){
+    const cardInfo = [
                 {
                     imgSrc: './laptop.jpg',
                     title: 'A day in life of bihari :)',
@@ -246,71 +323,9 @@ form{
                         classes: 'card'
                     })
                 })
-
-        const root = div([   
-            nav({
-                name: 'ShreyaPens',
-                links: [
-                    {
-                        link: '/about',
-                        name: 'About Us'
-                    },
-                    {
-                        link: '/contact',
-                        name: 'Contact Us'
-                    },
-                    {
-                        link: '/login',
-                        name: 'LogIn',
-                    },
-                ]
-            }, {
-                id: 'nav'
-            }),
-            div([
-                div([
-                    h3('Welcome to'),
-                    h1('shreyaPens'),
-                    p('Thank you for visiting'),
-                    button('Read my pens', {
-                        classes: ['btn-dark', 'text-white']
-                    }),
-                    a([
-                        button('Follow Me', {
-                            classes: ['text-white', 'btn-dark', 'ml-1']
-                        })
-                    ], {
-                        href: 'https://www.sololearn.com/Profile/12767781'
-                    }),
-                ], {
-                    id: 'hero-text'
-                })
-            ],{
-                id: 'hero-section'
-            }),
-            div([
-                h1('about me', {
-                    classes: 'watermark-heading',
-                    id: 'first-H1'
-                }),
-                div([
-                    img({
-                        src: './laptop.jpg',
-                        id: 'profile-img'
-                    })
-                ],{
-                    id: 'profile-img-section'
-                }),
-                div([
-                    h2('Hello'),
-                    p('Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus aperiam, assumenda quis quod dignissimos quibusdam voluptas itaque nam obcaecati odit consequuntur, enim cumque repudiandae autem, nemo provident nesciunt. Eligendi nemo recusandae distinctio iure perspiciatis porro sequi. Maxime explicabo temporibus quos, beatae, amet veritatis vitae impedit tenetur nam, corporis iure! Veniam.')
-                ], {
-                    id: 'text'
-                })
-            ], {
-                id: 'about'
-            }),
-            div([
+                
+                return(
+                    div([
                 h1('latest pens', {
                     classes: 'watermark-heading'
                 }),
@@ -320,8 +335,13 @@ form{
                 })
             ], {
                 id: 'card-section'
-            }),
-            div([
+            })
+                )
+}
+
+function Footer(){
+return(
+    div([
                 div([
                     a([
                         span('', {
@@ -389,10 +409,18 @@ form{
                 id: 'contact-form',
                 classes: ['bg-dark', 'container']
             })
+            )
+}
+
+        const root = div([   
+            Nav(),
+            Hero(),
+            About(),
+            Cards(),
+            Footer()
         ])
 
         document.body.append(root) 
-
     </script>
 </body>
 </html>
