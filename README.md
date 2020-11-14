@@ -40,10 +40,10 @@ Remember that everything you type should be in the div#root
 p('Hello World'),
 ```
 Bingo we have created our very first quark app
-```
+
 ### Note : 
 We use ',' at the end instead of ';' as you can see it is a array of elements
-```
+
 ## Available Elements
 * div
 * button
