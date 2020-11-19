@@ -138,6 +138,11 @@ const icon = (params) => {
     return el
 }
 
+const br = () => {
+    const el = cl('br')
+    return el
+}
+
 const ul = (items, params) => {
     const el = cl('ul')
     el.innerHTML = `
